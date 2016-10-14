@@ -8,14 +8,6 @@ class Mail(object):
 
     """Maildocker Message Class"""
 
-    to = []
-    cc = []
-    bcc = []
-    images = []
-    attachments = []
-    merge_vars = {}
-    mail_from = None
-
     def __init__(self, **opts):
         """
         Constructs Maildocker Message object.
@@ -34,6 +26,13 @@ class Mail(object):
             attachments: Files to attach
             images: Images to attach
         """
+        self.to = []
+        self.cc = []
+        self.bcc = []
+        self.images = []
+        self.attachments = []
+        self.merge_vars = {}
+        
         self.set_from(opts.get('mail_from', ''))
         self.add_to(opts.get('to', []))
         self.add_cc(opts.get('cc', []))
